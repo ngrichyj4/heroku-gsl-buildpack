@@ -24,6 +24,9 @@ function set-default-env (){
 echo "-----> Fetching and vendoring gsl"
 apt-get update
 apt-get install libgsl-dev
+echo "-----> Other libs"
+apt-get install libnss
+apt-get install libnss3-dev libgdk-pixbuf2.0-dev libgtk-3-dev libxss-dev
 curl "https://s3.amazonaws.com/opendoor-deps/gsl-1.16.tar.gz" -s -o - | tar xzf - -C "$VENDOR_DIR"
 mv "$VENDOR_DIR/gsl-1.16" "$VENDOR_DIR/gsl"
 # FYI we do this and set the export path explicitly because we cannot assume all buildpacks copy this dir over
